@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  svg-viewer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: svg-viewer
+    container_name: svg-viewer-app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - svg-viewer-network
+
+networks:
+  svg-viewer-network:
+    driver: bridge 
